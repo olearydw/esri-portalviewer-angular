@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="esri-portal">
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+  <link rel="stylesheet" href="app/assets/css/app.css" />  
+
+</head>
+<body>
+  <ng-include src="'app/layout/topnav.html'"></ng-include>
+
+  <div class="container-fluid">
+  
+    <div ng-view></div>
+  
+  </div>
+
+  
+  <script type="text/javascript" src="//js.arcgis.com/3.13/" data-dojo-config="async: true"></script>
+
+  <script type="text/javascript" src="scripts/angular.js"></script>
+  <script type="text/javascript" src="scripts/angular-route.js"></script>
+  <script type="text/javascript" src="scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+  <script type="text/javascript" src="scripts/angular-ui/ui-bootstrap.js"></script>
+
+  <script type="text/javascript" src="app/js/app.js"></script>
+  <script type="text/javascript" src="app/components/landing/landing.js"></script>
+  <script type="text/javascript" src="app/components/itemsgeo/itemsgeo.js"></script>
+  <script type="text/javascript" src="app/components/itemsgallery/itemsgallery.js"></script>
+</body>
+</html>
