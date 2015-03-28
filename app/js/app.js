@@ -4,11 +4,16 @@ angular.module('esri-portal', [
   'ngRoute',
   'esri-portal.landing',
   'esri-portal.itemsgeo',
-  'esri-portal.itemsgallery'
+  'esri-portal.itemsgallery',
+  'esri.map'
 ]).
 config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     .when('/', {
+      controller: 'MainController',
+      templateUrl: 'app/components/landing/landing.html'
+    })
+    .when('/landing', {
       controller: 'LandingPageCtrl',
       templateUrl: 'app/components/landing/landing.html'
     })
