@@ -5,6 +5,7 @@ angular.module('esri-portal', [
   'esri-portal.landing',
   'esri-portal.itemsgeo',
   'esri-portal.itemsgallery',
+  'esri-portal.services',
   'esri.map'
 ]).
 config(['$routeProvider', function ($routeProvider) {
