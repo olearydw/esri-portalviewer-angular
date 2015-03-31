@@ -2,41 +2,38 @@
 
 angular.module('esri-portal.itemsgallery', [])
 
-.controller('ItemsGalleryCtrl', ['$scope', 'ServicesFactory', function ($scope, ServicesFactory) {
+.controller('ItemsGalleryCtrl', ['$log', '$scope', 'PortalServicesFactory', function ($log, $scope, PortalServicesFactory) {
   $scope.gallerySnippet = "Web GIS portal";
+
+  $scope.portalObj = {};
   
   $scope.loadItems = function () {
-
-    ServicesFactory.getItems().then(function (response) {
-      console.log(response.data);
+    PortalServicesFactory.getItems().then(function (response) {
+      console.log(response);
       //$scope.posts = response.data;
+    },
+    function (errorResponse) {
+      console.log('failure loading items', errorResponse);
     });
+  };
 
+  $scope.getPortalSelf = function () {
+    var params = { f: 'json' };
+    var promise = PortalServicesFactory.getPortalSelf(params);
+    promise.then(
+      function (response) {
+        $scope.portalObj.self = response.data;
+        console.log($scope.portalObj.self);
+      },
+      function (errorResponse) {
+        console.log('failure loading items', errorResponse);
+      }
+    );
+  };
 
-
-
-    /*
-    var pItems = servicesFactory.getItems().then(function (data) {
-      console.log(data);
-      return data;
-    });
-    */
-    //console.log(pItems);
-
-    /*
-    servicesFactory.getItems().then(function (response) {
-      console.log('RESPONSE FROM SERVICE FACTORY', response);
-    });
-    */
-
-
-  }();
-
-  //console.log($scope);
-  //console.log($rootScope);
-
-
-  //this.loadItems();
-
+  //$scope.loadItems();
+  $scope.getPortalSelf();
 
 }]);
+
+
